@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node C:/Users/felip/.claude/skills/security-check/scripts/check.js)",
+      "Bash(ls .env*)",
+      "Bash(npm audit:*)",
+      "Bash(node -e \"const d=JSON.parse\\(require\\(''''fs''''\\).readFileSync\\(''''/dev/stdin'''',''''utf8''''\\)\\); const v=d.metadata?.vulnerabilities||{}; console.log\\(JSON.stringify\\(v\\)\\)\")",
+      "Bash(grep -rn \"innerHTML\\\\|dangerouslySetInnerHTML\" src/ --include=*.ts --include=*.tsx --include=*.js)",
+      "Bash(grep -rn \"SELECT\\\\|INSERT\\\\|UPDATE\\\\|DELETE\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(xargs grep:*)",
+      "Bash(grep -rn \"bcrypt\\\\|argon2\\\\|scrypt\\\\|pbkdf2\\\\|hashPassword\\\\|password\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(grep -rn \"csrf\\\\|sameSite\\\\|X-Requested-With\\\\|CSRF\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(grep -rn \"X-Frame-Options\\\\|Content-Security-Policy\\\\|X-Content-Type\\\\|Strict-Transport\\\\|cors\\\\|CORS\\\\|helmet\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(grep -rn \"VITE_SUPABASE\\\\|supabase.*key\\\\|supabase.*url\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(python3 -c \":*)",
+      "Bash(grep -rn \"zod\\\\|joi\\\\|yup\\\\|express-validator\\\\|validate\\\\|schema\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(grep -rn \"auth\\\\.\\\\|getUser\\\\|getSession\\\\|requireAuth\\\\|isAuthenticated\\\\|signIn\\\\|signOut\" src/ --include=*.ts --include=*.tsx)",
+      "Bash(grep -rn import.meta.env. src/ --include=*.ts --include=*.tsx)"
+    ]
+  }
+}

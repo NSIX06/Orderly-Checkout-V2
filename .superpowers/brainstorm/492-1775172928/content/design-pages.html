@@ -1,0 +1,171 @@
+<h2>Design das 4 páginas</h2>
+<p class="subtitle">Clique em cada página para ver o mockup. Layout com AppShell (sidebar 200px + conteúdo).</p>
+
+<div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:16px">
+
+  <!-- PAGE 1: DASHBOARD -->
+  <div style="flex:1;min-width:280px">
+    <div class="label">/ — Dashboard (atual)</div>
+    <div style="display:flex;height:280px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-top:6px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+      <!-- Sidebar -->
+      <div style="width:140px;background:#0f172a;display:flex;flex-direction:column;padding:16px 8px;gap:4px;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:6px;padding:8px;margin-bottom:8px">
+          <div style="width:22px;height:22px;background:#3b82f6;border-radius:4px"></div>
+          <span style="color:#fff;font-size:9px;font-weight:700">Orderly v2</span>
+        </div>
+        <div style="background:#1e3a5f;border-radius:4px;padding:5px 8px;font-size:8px;color:#60a5fa;display:flex;align-items:center;gap:5px">🏠 Dashboard</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">📋 Logs de API</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">✅ Backlog</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">⚠️ Pendências</div>
+      </div>
+      <!-- Content -->
+      <div style="flex:1;background:#f8fafc;padding:12px;overflow:hidden">
+        <div style="font-size:8px;color:#64748b;margin-bottom:8px">Métricas</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px">
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:6px"><div style="font-size:7px;color:#64748b">Pedidos</div><div style="font-size:11px;font-weight:700;color:#1e293b">24</div></div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:6px"><div style="font-size:7px;color:#64748b">Receita</div><div style="font-size:11px;font-weight:700;color:#1e293b">R$1.2k</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:8px;height:60px"></div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:8px;height:60px"></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:#64748b;margin-top:6px">Sem mudanças no conteúdo — só remove o header e encaixa no AppShell.</p>
+  </div>
+
+  <!-- PAGE 2: LOGS -->
+  <div style="flex:1;min-width:280px">
+    <div class="label">/logs — Logs de API</div>
+    <div style="display:flex;height:280px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-top:6px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+      <div style="width:140px;background:#0f172a;display:flex;flex-direction:column;padding:16px 8px;gap:4px;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:6px;padding:8px;margin-bottom:8px">
+          <div style="width:22px;height:22px;background:#3b82f6;border-radius:4px"></div>
+          <span style="color:#fff;font-size:9px;font-weight:700">Orderly v2</span>
+        </div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">🏠 Dashboard</div>
+        <div style="background:#1e3a5f;border-radius:4px;padding:5px 8px;font-size:8px;color:#60a5fa;display:flex;align-items:center;gap:5px">📋 Logs de API</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">✅ Backlog</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">⚠️ Pendências</div>
+      </div>
+      <div style="flex:1;background:#f8fafc;padding:12px;overflow:hidden">
+        <div style="font-size:9px;font-weight:600;color:#1e293b;margin-bottom:6px">Logs de API</div>
+        <div style="display:flex;gap:4px;margin-bottom:6px">
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:3px;padding:2px 6px;font-size:7px;color:#64748b">Método ▾</div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:3px;padding:2px 6px;font-size:7px;color:#64748b">Status ▾</div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:3px;padding:2px 6px;font-size:7px;color:#64748b">Rota...</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:28px 32px 1fr 28px;gap:4px;padding:4px 6px;background:#f1f5f9;font-size:6px;color:#94a3b8;font-weight:600">
+            <span>MÉT.</span><span>COD.</span><span>ROTA</span><span>IP</span>
+          </div>
+          <div style="display:grid;grid-template-columns:28px 32px 1fr 28px;gap:4px;padding:3px 6px;border-top:1px solid #f1f5f9;font-size:6px;color:#1e293b">
+            <span style="color:#3b82f6">GET</span><span style="color:#22c55e">200</span><span>/pedidos</span><span style="color:#94a3b8">...</span>
+          </div>
+          <div style="display:grid;grid-template-columns:28px 32px 1fr 28px;gap:4px;padding:3px 6px;border-top:1px solid #f1f5f9;font-size:6px;color:#1e293b">
+            <span style="color:#f59e0b">POST</span><span style="color:#22c55e">201</span><span>/pedidos</span><span style="color:#94a3b8">...</span>
+          </div>
+          <div style="display:grid;grid-template-columns:28px 32px 1fr 28px;gap:4px;padding:3px 6px;border-top:1px solid #f1f5f9;font-size:6px;color:#1e293b">
+            <span style="color:#ef4444">DEL</span><span style="color:#ef4444">500</span><span>/clientes</span><span style="color:#94a3b8">...</span>
+          </div>
+          <div style="display:grid;grid-template-columns:28px 32px 1fr 28px;gap:4px;padding:3px 6px;border-top:1px solid #f1f5f9;font-size:6px;color:#1e293b">
+            <span style="color:#3b82f6">GET</span><span style="color:#22c55e">200</span><span>/produtos</span><span style="color:#94a3b8">...</span>
+          </div>
+        </div>
+        <div style="margin-top:6px;font-size:7px;color:#94a3b8">clique na linha → ver JSON completo</div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:#64748b;margin-top:6px">Tabela com filtros de método/status/rota. Clique na linha expande o JSON de params, body e response.</p>
+  </div>
+
+  <!-- PAGE 3: BACKLOG -->
+  <div style="flex:1;min-width:280px">
+    <div class="label">/backlog — Backlog de Tarefas</div>
+    <div style="display:flex;height:280px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-top:6px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+      <div style="width:140px;background:#0f172a;display:flex;flex-direction:column;padding:16px 8px;gap:4px;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:6px;padding:8px;margin-bottom:8px">
+          <div style="width:22px;height:22px;background:#3b82f6;border-radius:4px"></div>
+          <span style="color:#fff;font-size:9px;font-weight:700">Orderly v2</span>
+        </div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">🏠 Dashboard</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">📋 Logs de API</div>
+        <div style="background:#1e3a5f;border-radius:4px;padding:5px 8px;font-size:8px;color:#60a5fa;display:flex;align-items:center;gap:5px">✅ Backlog</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">⚠️ Pendências</div>
+      </div>
+      <div style="flex:1;background:#f8fafc;padding:10px;overflow:hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-size:9px;font-weight:600;color:#1e293b">Backlog de Tarefas</div>
+          <div style="background:#3b82f6;color:#fff;font-size:7px;padding:2px 6px;border-radius:3px">+ Nova</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px">
+          <div>
+            <div style="font-size:7px;font-weight:600;color:#f59e0b;margin-bottom:3px;text-transform:uppercase">Pendente</div>
+            <div style="background:#fff;border:1px solid #fde68a;border-radius:4px;padding:5px;margin-bottom:3px">
+              <div style="font-size:7px;font-weight:500;color:#1e293b">Relatório PDF</div>
+              <div style="font-size:6px;color:#ef4444;margin-top:2px">● ALTA</div>
+            </div>
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:5px">
+              <div style="font-size:7px;font-weight:500;color:#1e293b">Notif. email</div>
+              <div style="font-size:6px;color:#64748b;margin-top:2px">● MÉDIA</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:7px;font-weight:600;color:#3b82f6;margin-bottom:3px;text-transform:uppercase">Em Progresso</div>
+            <div style="background:#fff;border:1px solid #bfdbfe;border-radius:4px;padding:5px">
+              <div style="font-size:7px;font-weight:500;color:#1e293b">Tela Backlogs</div>
+              <div style="font-size:6px;color:#f59e0b;margin-top:2px">● ALTA</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:7px;font-weight:600;color:#22c55e;margin-bottom:3px;text-transform:uppercase">Concluído</div>
+            <div style="background:#fff;border:1px solid #bbf7d0;border-radius:4px;padding:5px">
+              <div style="font-size:7px;font-weight:500;color:#94a3b8;text-decoration:line-through">Logger API</div>
+              <div style="font-size:6px;color:#22c55e;margin-top:2px">✓ FEITO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:#64748b;margin-top:6px">Kanban com colunas: Pendente / Em Progresso / Concluído. Campos: título, descrição, prioridade (Baixa/Média/Alta/Crítica), tipo (Tarefa/Bug/Feature).</p>
+  </div>
+
+  <!-- PAGE 4: PENDENCIAS -->
+  <div style="flex:1;min-width:280px">
+    <div class="label">/pendencias — Pendências Operacionais</div>
+    <div style="display:flex;height:280px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-top:6px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+      <div style="width:140px;background:#0f172a;display:flex;flex-direction:column;padding:16px 8px;gap:4px;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:6px;padding:8px;margin-bottom:8px">
+          <div style="width:22px;height:22px;background:#3b82f6;border-radius:4px"></div>
+          <span style="color:#fff;font-size:9px;font-weight:700">Orderly v2</span>
+        </div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">🏠 Dashboard</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">📋 Logs de API</div>
+        <div style="padding:5px 8px;font-size:8px;color:#64748b;display:flex;align-items:center;gap:5px">✅ Backlog</div>
+        <div style="background:#1e3a5f;border-radius:4px;padding:5px 8px;font-size:8px;color:#60a5fa;display:flex;align-items:center;gap:5px">⚠️ Pendências</div>
+      </div>
+      <div style="flex:1;background:#f8fafc;padding:10px;overflow:hidden">
+        <div style="font-size:9px;font-weight:600;color:#1e293b;margin-bottom:8px">Pendências Operacionais</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="background:#fff;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:4px;padding:5px 7px">
+            <div style="font-size:7px;font-weight:600;color:#92400e">Pedidos Abertos sem Endereço</div>
+            <div style="font-size:10px;font-weight:700;color:#1e293b">3 pedidos</div>
+          </div>
+          <div style="background:#fff;border:1px solid #fecaca;border-left:3px solid #ef4444;border-radius:4px;padding:5px 7px">
+            <div style="font-size:7px;font-weight:600;color:#991b1b">Pedidos Abertos sem Items</div>
+            <div style="font-size:10px;font-weight:700;color:#1e293b">1 pedido</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-left:3px solid #64748b;border-radius:4px;padding:5px 7px">
+            <div style="font-size:7px;font-weight:600;color:#64748b">Pedidos sem Cliente</div>
+            <div style="font-size:10px;font-weight:700;color:#1e293b">5 pedidos</div>
+          </div>
+          <div style="background:#fff;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:4px;padding:5px 7px">
+            <div style="font-size:7px;font-weight:600;color:#92400e">Erros de API (últimas 24h)</div>
+            <div style="font-size:10px;font-weight:700;color:#1e293b">2 erros 5xx</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:#64748b;margin-top:6px">Cards de alertas que agregam dados das tabelas existentes: pedidos abertos sem endereço, sem itens, sem cliente, e erros recentes de API.</p>
+  </div>
+
+</div>
