@@ -67,6 +67,81 @@ export type Database = {
         Update: { created_at?: string; id?: string; nome?: string; preco?: number }
         Relationships: []
       }
+      tblLogs: {
+        Row: {
+          id: string
+          rota: string
+          metodo: string
+          status_code: number
+          params: Json | null
+          body: Json | null
+          response: Json | null
+          ip: string | null
+          usuario_id: string | null
+          mensagem_erro: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          rota: string
+          metodo: string
+          status_code: number
+          params?: Json | null
+          body?: Json | null
+          response?: Json | null
+          ip?: string | null
+          usuario_id?: string | null
+          mensagem_erro?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          rota?: string
+          metodo?: string
+          status_code?: number
+          params?: Json | null
+          body?: Json | null
+          response?: Json | null
+          ip?: string | null
+          usuario_id?: string | null
+          mensagem_erro?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
+      tblBacklog: {
+        Row: {
+          id: string
+          titulo: string
+          descricao: string | null
+          status: string
+          prioridade: string
+          tipo: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          titulo: string
+          descricao?: string | null
+          status?: string
+          prioridade?: string
+          tipo?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          titulo?: string
+          descricao?: string | null
+          status?: string
+          prioridade?: string
+          tipo?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: { [_ in never]: never }
     Functions: { [_ in never]: never }
