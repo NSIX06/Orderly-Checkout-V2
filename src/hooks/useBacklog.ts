@@ -42,6 +42,7 @@ export function useAtualizarTarefa() {
     }) => BacklogModel.atualizarTarefa(id, campos),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["backlog"] });
+      toast({ title: "Tarefa atualizada!" });
     },
     onError: (e: Error) => {
       toast({ title: "Erro", description: e.message, variant: "destructive" });
