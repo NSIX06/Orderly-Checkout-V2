@@ -1,4 +1,8 @@
-CREATE TABLE public."tblBacklog" (
+-- ============================================================
+-- MIGRAÇÃO: tblBacklog - Backlog de tarefas e funcionalidades
+-- ============================================================
+
+CREATE TABLE IF NOT EXISTS public."tblBacklog" (
   id          UUID                     NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
   titulo      TEXT                     NOT NULL,
   descricao   TEXT,
@@ -15,4 +19,16 @@ CREATE TABLE public."tblBacklog" (
 ALTER TABLE public."tblBacklog" ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY "Permitir todas operacoes em tblBacklog" ON public."tblBacklog"
-  USING (true) WITH CHECK (true);
+  FOR ALL USING (true) WITH CHECK (true);
+
+CREATE OR REPLACE FUNCTION public.set_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at := now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER tbl_backlog_set_updated_at
+BEFORE UPDATE ON public."tblBacklog"
+FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
