@@ -1,5 +1,5 @@
 // src/test/logs.repository.test.ts
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect } from "vitest";
 
 // Tipo local para o teste (espelha tblLogs Row)
 interface LogRow {
@@ -15,12 +15,6 @@ interface LogRow {
   mensagem_erro: string | null;
   created_at: string;
 }
-
-type FiltroLogs = {
-  metodo?: string;
-  faixaStatus?: "2xx" | "4xx" | "5xx";
-  rota?: string;
-};
 
 function aplicarFiltroFaixa(logs: LogRow[], faixa?: string): LogRow[] {
   if (!faixa) return logs;

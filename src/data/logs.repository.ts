@@ -14,6 +14,13 @@ export type FiltroLogs = {
   rota?: string;
 };
 
+/**
+ * Busca logs com filtros opcionais.
+ *
+ * IMPORTANTE: Busca no máximo 200 registros do banco (ordenados por created_at DESC).
+ * O filtro `faixaStatus` é aplicado no cliente após a busca. Se a tabela tiver muitos
+ * registros além do limite de 200, os resultados filtrados podem estar incompletos.
+ */
 export async function findLogs(filtros: FiltroLogs = {}): Promise<LogRow[]> {
   let query = supabase
     .from("tblLogs")
@@ -37,7 +44,9 @@ export async function findLogs(filtros: FiltroLogs = {}): Promise<LogRow[]> {
   });
 }
 
-export async function findLogsErros24h(): Promise<LogRow[]> {
+export type LogErro24h = Pick<LogRow, "id" | "status_code" | "rota" | "created_at">;
+
+export async function findLogsErros24h(): Promise<LogErro24h[]> {
   const limite = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
   const { data, error } = await supabase
     .from("tblLogs")
@@ -45,5 +54,5 @@ export async function findLogsErros24h(): Promise<LogRow[]> {
     .gte("status_code", 500)
     .gte("created_at", limite);
   if (error) throw error;
-  return (data ?? []) as unknown as LogRow[];
+  return data ?? [];
 }
