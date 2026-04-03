@@ -143,6 +143,7 @@ export function LogsPanel() {
                   <div key={log.id} className="border-b border-border last:border-0">
                     <button
                       onClick={() => setExpandido(isOpen ? null : log.id)}
+                      aria-expanded={isOpen}
                       className="grid w-full grid-cols-[70px_60px_1fr_100px_120px_24px] gap-2 px-3 py-2.5 text-left text-xs hover:bg-secondary/20 transition-colors"
                     >
                       <Badge variant="outline" className={`justify-center text-[10px] ${metodoCor[log.metodo] ?? ""}`}>

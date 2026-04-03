@@ -137,10 +137,11 @@ export function BacklogPanel() {
                     </span>
                   </p>
                   {tarefasPorStatus(status).map((tarefa) => (
-                    <div
+                    <button
                       key={tarefa.id}
+                      type="button"
                       onClick={() => abrirEdicao(tarefa)}
-                      className="cursor-pointer rounded-lg border border-border bg-card p-3 shadow-sm hover:shadow-md transition-shadow"
+                      className="w-full cursor-pointer rounded-lg border border-border bg-card p-3 shadow-sm hover:shadow-md transition-shadow text-left"
                     >
                       <div className="mb-2 flex items-start justify-between gap-2">
                         <p className="text-sm font-medium leading-tight">{tarefa.titulo}</p>
@@ -158,11 +159,11 @@ export function BacklogPanel() {
                         <Badge variant="outline" className={`text-[10px] ${prioridadeCor[tarefa.prioridade as PrioridadeBacklog]}`}>
                           {tarefa.prioridade}
                         </Badge>
-                        <span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${tipoCor[tarefa.tipo as TipoBacklog]}`}>
+                        <span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${tipoCor[tarefa.tipo as TipoBacklog] ?? ""}`}>
                           {tarefa.tipo}
                         </span>
                       </div>
-                    </div>
+                    </button>
                   ))}
                   {tarefasPorStatus(status).length === 0 && (
                     <p className="rounded-lg border border-dashed border-border p-3 text-center text-xs text-muted-foreground">

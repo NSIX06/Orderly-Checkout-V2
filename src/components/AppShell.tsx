@@ -28,7 +28,7 @@ export function AppShell() {
         </div>
 
         {/* Nav */}
-        <nav className="flex flex-col gap-1 p-2 pt-3">
+        <nav aria-label="Navegação principal" className="flex flex-col gap-1 p-2 pt-3">
           {navItems.map(({ to, label, icon: Icon, end }) => (
             <NavLink
               key={to}
