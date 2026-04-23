@@ -179,7 +179,7 @@ export function BacklogPanel() {
 
       {/* Modal criar/editar */}
       <Dialog open={modalAberto} onOpenChange={(open) => { if (!open) fecharModal(); }}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md" aria-describedby={undefined}>
           <DialogHeader>
             <DialogTitle>{tarefaEditando ? "Editar Tarefa" : "Nova Tarefa"}</DialogTitle>
           </DialogHeader>
