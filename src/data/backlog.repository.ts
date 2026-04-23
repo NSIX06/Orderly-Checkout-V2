@@ -1,9 +1,5 @@
-/**
- * CAMADA DE DADOS — Backlog de Tarefas
- *
- * Responsabilidade: consultas à tabela tblBacklog no Supabase.
- */
 import { supabase } from "@/integrations/supabase/client";
+import { logDb } from "@/api/v2/shared/logs/log-db";
 import { Tables } from "@/integrations/supabase/types";
 
 export type BacklogRow = Tables<"tblBacklog">;
@@ -12,12 +8,14 @@ export type PrioridadeBacklog = "BAIXA" | "MEDIA" | "ALTA" | "CRITICA";
 export type TipoBacklog = "TAREFA" | "BUG" | "FEATURE" | "MELHORIA";
 
 export async function findBacklogTarefas(): Promise<BacklogRow[]> {
-  const { data, error } = await supabase
-    .from("tblBacklog")
-    .select("*")
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return data ?? [];
+  return logDb({ rota: "/db/backlog", metodo: "GET" }, async () => {
+    const { data, error } = await supabase
+      .from("tblBacklog")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    return data ?? [];
+  });
 }
 
 export async function insertBacklogTarefa(tarefa: {
@@ -26,30 +24,45 @@ export async function insertBacklogTarefa(tarefa: {
   prioridade: PrioridadeBacklog;
   tipo: TipoBacklog;
 }): Promise<BacklogRow> {
-  const { data, error } = await supabase
-    .from("tblBacklog")
-    .insert({ ...tarefa, status: "PENDENTE" })
-    .select()
-    .single();
-  if (error) throw error;
-  return data;
+  return logDb(
+    { rota: "/db/backlog", metodo: "POST", body: tarefa as Record<string, unknown> },
+    async () => {
+      const { data, error } = await supabase
+        .from("tblBacklog")
+        .insert({ ...tarefa, status: "PENDENTE" })
+        .select()
+        .single();
+      if (error) throw error;
+      return data;
+    }
+  );
 }
 
 export async function updateBacklogTarefa(
   id: string,
   campos: Partial<Pick<BacklogRow, "titulo" | "descricao" | "status" | "prioridade" | "tipo">>
 ): Promise<BacklogRow> {
-  const { data, error } = await supabase
-    .from("tblBacklog")
-    .update({ ...campos, updated_at: new Date().toISOString() })
-    .eq("id", id)
-    .select()
-    .single();
-  if (error) throw error;
-  return data;
+  return logDb(
+    { rota: "/db/backlog/:id", metodo: "PUT", body: { id, ...campos } as Record<string, unknown> },
+    async () => {
+      const { data, error } = await supabase
+        .from("tblBacklog")
+        .update({ ...campos, updated_at: new Date().toISOString() })
+        .eq("id", id)
+        .select()
+        .single();
+      if (error) throw error;
+      return data;
+    }
+  );
 }
 
 export async function deleteBacklogTarefa(id: string): Promise<void> {
-  const { error } = await supabase.from("tblBacklog").delete().eq("id", id);
-  if (error) throw error;
+  return logDb(
+    { rota: "/db/backlog/:id", metodo: "DELETE", body: { id } },
+    async () => {
+      const { error } = await supabase.from("tblBacklog").delete().eq("id", id);
+      if (error) throw error;
+    }
+  );
 }
